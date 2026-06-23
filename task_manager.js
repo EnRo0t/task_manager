@@ -18,11 +18,17 @@ newTaskBtn.addEventListener('click', () => {
 	contador++;
 	const newTask = `
 		<input class="task" id="task${contador}">
-		<div class="crono">00:00:00</div>
+		<div class="timerInfo">
+			<h1 id="hours">00</h1>
+			<h1 id="minutes">00</h1>
+			<h1 id="seconds">00</h1>
+			<h1 id="secTenth">00</h1>
+		</div>
 		<div class="buttonContainer">
-			<button class="startBtn">Start</button>
-			<button class="stopBtn">Stop</button>
-			<button class="submitBtn">Submit</button>
+		    <button id="start" class="startBtn">Start</button>
+		    <button id="pause" class="pauseBtn">Pause</button>
+		    <button id="stop" class="stopBtn">Stop</button>
+		    <button class="submitBtn">Submit</button>
 		</div>
 		`;
 taskManager.insertAdjacentHTML("beforeend", newTask);

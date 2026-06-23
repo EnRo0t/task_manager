@@ -1,101 +1,21 @@
 <!DOCTYPE html>
 <html>
-		<head>
-				<title>Task Manager</title>
-				<style>
-						.taskManager {
-								border: solid 2px black;
-								border-radius: 10px;
-								display: flex;
-								justify-content: center;
-								align-items: center;
-								flex-wrap: wrap;
-								margin: 20px;
-								padding: 10px;
-								gap: 20px;
-								background-color: darkSlateblue;
-						}
-						.crono {
-								display: flex;
-								justify-content: center;
-								align-items: center;
-								border: solid 1px grey;
-								border-radius: 2px;
-								background-color: rgba(0, 200, 55, 0.3);
-								font-family: monospace;
-								font-size: 20px;
-								text-shadow: rgba(0, 200, 55, 0.3) 1px 1px;
-								width: 30%;
-								height: 30px;
-						}
-						.task {
-								width: 30%;
-								height: 26px;
-						}
-
-						.buttonContainer {
-								margin: 0;
-								width: 30%;
-						}
-
-						#newTaskBtn {
-								width: 25px;	
-						}
-						
-
-				</style>
-		</head>
-		<body>
-    <div id="taskManager" class="taskManager">
-        <input class="task" id="task0">
-        <div class="crono">00:00:00</div>
-        <div class="buttonContainer">
-            <button class="startBtn">Start</button>
-            <button class="stopBtn">Stop</button>
-            <button class="submitBtn">Submit</button>
-        </div>
-    </div>
-    <button id="newTaskBtn">+</button>
-		</body>
-
-		<script>
-				let contador = 0;
-				const taskManager = document.getElementById("taskManager");
-				const newTaskBtn = document.getElementById("newTaskBtn");
-
-			function setupSubmit(submitBtn, input) {
-				submitBtn.addEventListener('click', () => {
-					input.disabled = true;
-				});
-			}
-
-			// Configurar la tarea inicial (task0)
-			setupSubmit(
-				document.querySelector(".submitBtn"),
-				document.getElementById("task0")
-			);
-
-			newTaskBtn.addEventListener('click', () => {
-				contador++;
-				const newTask = `
-					<input class="task" id="task${contador}">
-					<div class="crono">00:00:00</div>
-					<div class="buttonContainer">
-						<button class="startBtn">Start</button>
-						<button class="stopBtn">Stop</button>
-						<button class="submitBtn">Submit</button>
-					</div>
-					`;
-				taskManager.insertAdjacentHTML("beforeend", newTask);
-
-				// Configurar la nueva tarea recién creada
-				// Crear un array de los inputs y de los botones submit
-				const inputs = taskManager.querySelectorAll(".task");
-				const submitBtns = taskManager.querySelectorAll(".submitBtn");
-				// Selecciona el último input/submitBtn creado
-				const lastInput = inputs[inputs.length - 1];
-				const lastSubmit = submitBtns[submitBtns.length - 1];
-				// Ejecuta la función para ambos
-				setupSubmit(lastSubmit, lastInput);});		
-		</script>
+<head>
+	<link rel="stylesheet" href="task_manager_style.css">
+	<title>Task Manager</title>
+</head>
+<body>
+<div id="taskManager" class="taskManager">
+<input class="task" id="task0">
+<div class="crono">00:00:00</div>
+<div class="buttonContainer">
+    <button class="startBtn">Start</button>
+    <button class="stopBtn">Stop</button>
+    <button class="submitBtn">Submit</button>
+</div>
+</div>
+<button id="newTaskBtn">+</button>
+	</body>
+	<script src="task_manager.js"></script>
+	<script src="easytimer.js"></script>
 </html>

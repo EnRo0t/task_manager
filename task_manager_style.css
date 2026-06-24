@@ -1,41 +1,45 @@
 
-		.taskManager {
-				border: solid 2px black;
-				border-radius: 10px;
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				flex-wrap: wrap;
-				margin: 20px;
-				padding: 10px;
-				gap: 20px;
-				background-color: darkSlateblue;
+.taskManager {
+		border: solid 2px black;
+		border-radius: 10px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-wrap: wrap;
+		margin: 20px;
+		padding: 10px;
+		gap: 20px;
+		background-color: darkSlateblue;
 		}
-		.timerInfo {
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				border: solid 1px grey;
-				border-radius: 2px;
-				background-color: rgba(0, 200, 55, 0.3);
-				font-family: monospace;
-				font-size: 12px;
-				text-shadow: rgba(0, 200, 55, 0.3) 1px 1px;
-				width: 30%;
-				height: 30px;
+.timerInfo {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border: solid 1px grey;
+		border-radius: 2px;
+		background-color: rgba(0, 200, 55, 0.3);
+		font-family: monospace;
+		font-size: 12px;
+		text-shadow: rgba(0, 200, 55, 0.3) 1px 1px;
+		width: 30%;
+		height: 30px;
+		/* Esta linea agrega ":" entre los h1 */
+				h1+h1::before { 
+						content: ':'
+				}
 		}
-		.task {
-				width: 30%;
-				height: 26px;
+.task {
+		width: 30%;
+		height: 26px;
 		}
 
-		.buttonContainer {
-				margin: 0;
-				width: 30%;
+.buttonContainer {
+		margin: 0;
+		width: 30%;
 		}
 
-		#newTaskBtn {
-				width: 25px;	
+#newTaskBtn {
+		width: 25px;	
 		}
 		
 

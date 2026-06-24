@@ -41,4 +41,49 @@ const submitBtns = taskManager.querySelectorAll(".submitBtn");
 const lastInput = inputs[inputs.length - 1];
 const lastSubmit = submitBtns[submitBtns.length - 1];
 // Ejecuta la función para ambos
-setupSubmit(lastSubmit, lastInput);});		
+setupSubmit(lastSubmit, lastInput);});
+
+/*------------------------------------------------------------*/
+/*						   STOPWATCH						  */
+/*------------------------------------------------------------*/
+
+// Selectores botones 
+let startBtn = document.getElementById("start");
+let pauseBtn = document.getElementById("pause");
+let stopBtn = document.getElementById("stop");
+
+// Selectores crono 
+let hours = document.getElementById("hours");
+let minutes = document.getElementById("minutes");
+let seconds = document.getElementById("seconds");
+let secTenth = document.getElementById("secTenth");
+
+// Instanciar timer
+var timer = new easytimer.Timer();
+
+// Actualizador timer 
+timer.addEventListener('secondTenthsUpdated', () => {
+		// Crea un obj que contendrá los valores del timer
+		const obj = timer.getTimeValues();
+		// Añade los valores a los h1's del crono
+		hours.innerText = obj.hours.toString().padStart(2, '0');
+		minutes.innerText = obj.minutes.toString().padStart(2, '0');
+		seconds.innerText = obj.seconds.toString().padStart(2, '0');
+		secTenth.innerText = obj.secondTenths.toString().padStart(2, '0');
+
+});
+
+// Eventos botones
+startBtn.addEventListener('click', () => {
+		timer.start({
+				precision: 'secondTenths'
+		});
+});
+
+pauseBtn.addEventListener('click', () => {
+		timer.pause();
+});
+
+stopBtn.addEventListener('click', () => {
+		timer.stop();
+});
